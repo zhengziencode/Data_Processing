@@ -1,0 +1,49 @@
+小结：
+选择行:t[2]    t[3:,:]
+选择列:t[:,4:]
+选择行列:
+    连续多行:t[2:,3:]
+    不连续多行:t[[1,2],[3,4]] 选择了(1,3),(2,4)
+索引:t[1,2]
+
+赋值:
+    一般:t[1,2] = 100
+    布尔赋值:t[t>20]=100 数组中大于20的值改为100
+
+三元运算:
+    np.where(t>10,20,0)  数组t中，大于10的赋值为20，否则为0
+
+裁剪:
+    t.clip(10,20)
+
+转置:
+    t.T
+    t.transpose()
+    t.swapaxes()
+
+读取本地文件:
+    Numpy读取csv数据集文件使用以下函数
+    np.loadtxt(frame,dtype=np.float,delimiter=None,skiprows=0,usecols=None,unpack=False)
+    frame:文件，字符串或者产生器，或者是.gz和bz2压缩文件
+    dtype:数据类型，可选，默认是np.float（不同于python的float）类型
+    delimiter:分隔字符，默认是任何空格改成 逗号
+    skiprows:跳过前 x 行，一般跳过表头
+    usecols:读取指定的列， 索引，元组类型,表示需要使用数组的哪几列
+    unpack: 如果为True，读入属性将分别写入不同的数组变量，False读入数据只写入一个数组变量，默认是False,使用True之后，行和列互换
+    csv数据集可以到https://www.kaggle.com/ 找到
+
+nan和inf:
+    可以通过nan与nan不相等的来做一些操作,参照Demo11
+
+常用计算统计函数:
+    a = np.array([1,2,3])
+    a.sum(axis=None)
+    a.mean(axis=None)
+    np.median(a,axis=None)
+    a.max(axis=None)
+    a.min(axis=None)
+    np.ptp(a,axis=None)  求极值
+    a.std(axis=None)     求标准差
+
+    axis表示以哪一个为基准，求他垂直方向的那一行或者列
+    axis=0表示以行为基准，向下计算或者求值
